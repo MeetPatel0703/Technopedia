@@ -1,0 +1,35 @@
+{% extends "user/base.html" %} {% load static %} <br />
+{% block title %}
+<title>ADD QUESTION - Technopedia</title>
+{% endblock title %} <br />
+{% block content %} <section class="sign-up-in-section bg-dark ptb-60" style="
+background: url('{% static "assets/img/page-header-bg.svg" %}') no-repeat right
+bottom; " > 
+
+<div class="container mt-3">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-7 col-md-8 col-12">
+        <div class="register-wrap p-5 bg-light shadow rounded-custom mt-5">
+            {% if user.status %}
+                <p class="h5 d-inline text-dark">First Name:</p>
+                <p class="d-inline-block text-success badge bg-success-soft"> 
+                    {{user.first_name}}
+                </p>
+            {% endif %}
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="mb-1 h3 text-dark">{{user.username}}</p> 
+                </div>  
+            </div>
+                <div class="col-sm-12">
+                    <p class="mb-1 h6 text-secondary">{{user.email}}</p>
+                </div> 
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

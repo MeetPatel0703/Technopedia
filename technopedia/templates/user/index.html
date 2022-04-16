@@ -1,0 +1,429 @@
+{% extends 'user/base.html' %} <br />
+{% load static %}
+{% block content %}
+<section
+  class="hero-section ptb-120 text-white bg-gradient"
+  style="background: url('{% static "assets/img/hero-dot-bg.png" %}') no-repeat center right"
+>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 col-md-10">
+        <div class="hero-content-wrap mt-5 mt-lg-0 mt-xl-0">
+          <h4 class="fw-bold display-5 mt-3">
+            All your technical questions will be answered here.
+          </h4>
+          <p class="lead">
+            You can see all the technical solutions on this site. If you have a
+            question related to technology, you can ask it on our site. You can
+            also answer other people's questions.
+          </p>
+          <div
+            class="action-btn mt-5 align-items-center d-block d-sm-flex d-lg-flex d-md-flex"
+          >
+            <a href="{% url 'addque' %}" class="btn btn-primary me-3">Add your Question</a>
+          </div>
+          {% comment %}
+          <div class="row justify-content-lg-start mt-60">
+            <h6 class="text-white-70 mb-2">Our Top Clients:</h6>
+            <div class="col-4 col-sm-3 my-2 ps-lg-0">
+              <img
+                src="{% static 'assets/img/clients/client-1.svg' %}"
+                alt="client"
+                class="img-fluid"
+              />
+            </div>
+            <div class="col-4 col-sm-3 my-2">
+              <img
+                src="{% static 'assets/img/clients/client-2.svg' %}"
+                alt="client"
+                class="img-fluid"
+              />
+            </div>
+            <div class="col-4 col-sm-3 my-2">
+              <img
+                src="{% static 'assets/img/clients/client-3.svg' %}"
+                alt="client"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          {% endcomment %}
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-8 mt-3">
+        <div class="hero-img position-relative circle-shape-images">
+          <img src="{% static 'assets/img/faq.svg' %}" alt="hero img" class="img-fluid position-relative z-5">
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--hero section end-->
+
+<!--feature promo section start-->
+<section class="feature-promo ptb-120 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-10">
+        <div class="section-heading text-center">
+          <h2>With all the Features You Need</h2>
+          <p>
+            Below features are the features that we provides to our users. So that they can feel comfortable. Please feel free to explore.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6">
+        <div class="single-feature-promo p-lg-5 p-4 text-center mt-3">
+          <div class="feature-icon icon-center pb-5 rounded-custom bg-primary">
+            <i class="fal fa-layer-group fa-2x text-white"></i>
+          </div>
+          <div class="feature-info-wrap">
+            <h3 class="h5">Good Community</h3>
+            <p>
+              We have best community to connect with other developers. So you can ask your questions and get answers from other developers.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single-feature-promo p-lg-5 p-4 text-center mt-3">
+          <div class="feature-icon icon-center pb-5 rounded-custom bg-danger">
+            <i class="fal fa-shield-check fa-2x text-white"></i>
+          </div>
+          <div class="feature-info-wrap">
+            <h3 class="h5">Highly Secure</h3>
+            <p>
+              We provide best security to our users. We respect your privacy. We don't share your data with anyone.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single-feature-promo p-lg-5 p-4 text-center mt-3">
+          <div class="feature-icon icon-center pb-5 rounded-custom bg-dark">
+            <i class="fal fa-code fa-2x text-white"></i>
+          </div>
+          <div class="feature-info-wrap">
+            <h3 class="h5">Fast Response</h3>
+            <p>
+              Our Experts are always ready to help you. they will available 24*7 to solve your problems. Our community is great and we are always there to help you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--feature promo section end-->
+
+<!--faq section start-->
+<section class="faq-section ptb-90 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-6">
+        <div class="section-heading text-center">
+          <h4 class="h5 text-primary">FAQ</h4>
+          <h2>Frequently Asked Questions</h2>
+          <p>
+            Below questions are the highly asked by our users. Please feel free to explore.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-5 col-12">
+        <div class="faq-wrapper">
+          <div class="faq-item mb-5">
+            <h5>
+              <span class="h3 text-primary me-2">1.</span> What is Python?
+            </h5>
+            <p>
+              Python is a computer programming language often used to build websites and software, automate tasks, and conduct data analysis. Python is a general-purpose language that is especially suited to machine learning & web development.
+            </p>
+          </div>
+          <div class="faq-item mb-5">
+            <h5>
+              <span class="h3 text-primary me-2">2.</span> What is Django?
+            </h5>
+            <p>
+              Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. It takes care of much of the hassle of web development. It’s free and open source.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h5>
+              <span class="h3 text-primary me-2">3.</span> What is java?
+            </h5>
+            <p>
+              Java is an object-oriented programming language and computing platform first released by Sun Microsystems in 1995.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="text-center mt-4 mt-lg-0 mt-md-0">
+          <img
+            src="{% static 'assets/img/faq.svg' %}"
+            alt="faq"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--faq section end-->
+
+<!--integration section start-->
+{% comment %} <section class="integration-section ptb-120">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-3">
+        <div class="integration-list-wrap">
+          <a
+            href="integration-single.html"
+            class="integration-1"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Your Brand Name"
+          >
+            <img
+              src="{% static 'assets/img/integations/1.png' %}"
+              alt="integration"
+              class="img-fluid rounded-circle"
+            />
+          </a>
+          <a
+            href="integration-single.html"
+            class="integration-2"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Your Brand Name"
+          >
+            <img
+              src="{% static 'assets/img/integations/2.png' %}"
+              alt="integration"
+              class="img-fluid rounded-circle"
+            />
+          </a>
+          <a
+            href="integration-single.html"
+            class="integration-3"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Your Brand Name"
+          >
+            <img
+              src="{% static 'assets/img/integations/3.png' %}"
+              alt="integration"
+              class="img-fluid rounded-circle"
+            />
+          </a>
+
+          <a
+            href="integration-single.html"
+            class="integration-4"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Your Brand Name"
+          >
+            <img
+              src="{% static 'assets/img/integations/4.png' %}"
+              alt="integration"
+              class="img-fluid rounded-circle"
+            />
+          </a>
+          <a
+            href="integration-single.html"
+            class="integration-5"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Your Brand Name"
+          >
+            <img
+              src="{% static 'assets/img/integations/5.png' %}"
+              alt="integration"
+              class="img-fluid rounded-circle"
+            />
+          </a>
+          <a
+            href="integration-single.html"
+            class="integration-6"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Your Brand Name"
+          >
+            <img
+              src="{% static 'assets/img/integations/6.png' %}"
+              alt="integration"
+              class="img-fluid rounded-circle"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-12">
+        <div class="section-heading text-center my-5 my-lg-0 my-xl-0">
+          <h4 class="text-primary h5">Integration</h4>
+          <h2>We Collaborate with Top Software Company</h2>
+          <a href="integrations.html" class="mt-4 btn btn-primary"
+            >View all Integration</a
+          >
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="col-lg-4">
+          <div class="integration-list-wrap">
+            <a
+              href="integration-single.html"
+              class="integration-7"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Your Brand Name"
+            >
+              <img
+                src="{% static 'assets/img/integations/7.png' %}"
+                alt="integration"
+                class="img-fluid rounded-circle"
+              />
+            </a>
+            <a
+              href="integration-single.html"
+              class="integration-8"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Your Brand Name"
+            >
+              <img
+                src="{% static 'assets/img/integations/8.png' %}"
+                alt="integration"
+                class="img-fluid rounded-circle"
+              />
+            </a>
+            <a
+              href="integration-single.html"
+              class="integration-9"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Your Brand Name"
+            >
+              <img
+                src="{% static 'assets/img/integations/9.png' %}"
+                alt="integration"
+                class="img-fluid rounded-circle"
+              />
+            </a>
+
+            <a
+              href="integration-single.html"
+              class="integration-10"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Your Brand Name"
+            >
+              <img
+                src="{% static 'assets/img/integations/10.png' %}"
+                alt="integration"
+                class="img-fluid rounded-circle"
+              />
+            </a>
+            <a
+              href="integration-single.html"
+              class="integration-11"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Your Brand Name"
+            >
+              <img
+                src="{% static 'assets/img/integations/11.png' %}"
+                alt="integration"
+                class="img-fluid rounded-circle"
+              />
+            </a>
+            <a
+              href="integration-single.html"
+              class="integration-12"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Your Brand Name"
+            >
+              <img
+                src="{% static 'assets/img/integations/12.png' %}"
+                alt="integration"
+                class="img-fluid rounded-circle"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-100">
+      <div class="col-lg-5 col-md-12">
+        <a
+          href="integration-single.html"
+          class="mb-4 mb-lg-0 mb-xl-0 position-relative text-decoration-none connected-app-single border border-light border-2 rounded-custom d-block overflow-hidden p-5"
+        >
+          <div class="position-relative connected-app-content">
+            <div
+              class="integration-logo bg-custom-light rounded-circle p-2 d-inline-block"
+            >
+              <img
+                src="{% static 'assets/img/integations/4.png' %}"
+                width="40"
+                alt="integration"
+                class="img-fluid"
+              />
+            </div>
+            <h5>Google Drive</h5>
+            <p class="mb-0 text-body">
+              Competently generate unique e-services and client-based models.
+              Globally engage tactical niche
+            </p>
+          </div>
+          <span
+            class="position-absolute integration-badge badge px-3 py-2 bg-primary-soft text-primary"
+            >Connect</span
+          >
+        </a>
+      </div>
+
+      <div class="col-lg-5 col-md-12">
+        <a
+          href="integration-single.html"
+          class="position-relative text-decoration-none connected-app-single border border-light border-2 rounded-custom d-block overflow-hidden p-5"
+        >
+          <div class="position-relative connected-app-content">
+            <div
+              class="integration-logo bg-custom-light rounded-circle p-2 d-inline-block"
+            >
+              <img
+                src="{% static 'assets/img/integations/9.png' %}"
+                width="40"
+                alt="integration"
+                class="img-fluid"
+              />
+            </div>
+            <h5>Google Drive</h5>
+            <p class="mb-0 text-body">
+              Globally engage tactical niche markets rather than client-based
+              competently generate services
+            </p>
+          </div>
+          <span
+            class="position-absolute integration-badge badge px-3 py-2 bg-danger-soft text-danger"
+            >Connected</span
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+<!--integration section end-->
+
+{% endblock content %}
+<!--cat subscribe end-->
+
+<!--footer section start-->
+<!--footer section start-->
+
+<!--endbuild-->

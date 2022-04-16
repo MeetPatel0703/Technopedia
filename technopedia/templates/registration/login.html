@@ -1,0 +1,124 @@
+{% extends "user/base.html" %} {% load static %}
+<!--title-->
+{% block title %}
+<title>Login - Technopedia</title>
+{% endblock title %}
+
+<!--register section start-->
+{% block content %}
+<section
+  class="sign-up-in-section bg-dark ptb-60"
+  style="
+    background: url('{% static "assets/img/page-header-bg.svg" %}') no-repeat right bottom;
+  "
+>
+  <div class="container mt-3">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-5 col-md-8 col-12">
+        <a href="{% url 'home' %}" class="mb-4 d-block text-center"
+          ><img
+            src="{% static 'assets/img/logo-bulb-white.png' %}"
+            alt="logo"
+            class="img-fluid"
+            width="120px"
+        /></a>
+        <div class="register-wrap p-5 bg-light shadow rounded-custom">
+          <h1 class="h3">Nice to Seeing You Again</h1>
+          <p class="text-muted">
+            Please log in to access your account, and start exploring with the community.
+          </p>
+
+          <div class="action-btns">
+            <a
+              href="#"
+              class="btn google-btn bg-white shadow-sm mt-4 d-block d-flex align-items-center text-decoration-none justify-content-center"
+            >
+              <img
+                src="{% static 'assets/img/google-icon.svg' %}"
+                alt="google"
+                class="me-3"
+              />
+              <span>Connect with Google</span>
+            </a>
+          </div>
+          <div
+            class="position-relative d-flex align-items-center justify-content-center mt-4 py-4"
+          >
+            <span class="divider-bar"></span>
+            <h6
+              class="position-absolute text-center divider-text bg-light mb-0"
+            >
+              Or
+            </h6>
+          </div>
+          <form action="" method='POST' class="mt-4 register-form" novalidate>
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-sm-12">
+                <label for="email" class="mb-1"
+                  >Username <span class="text-danger">*</span></label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    id="username"
+                    required
+                    aria-label="username"
+                    name="username"
+                  />
+                </div> 
+                {% comment %} {{form.username}} {% endcomment %}
+              </div>
+              <div class="col-sm-12">
+                <label for="password" class="mb-1"
+                  >Password <span class="text-danger">*</span></label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    id="password"
+                    name="password"
+                    required
+                    aria-label="Password"
+                  /> 
+                  {% comment %} {{form.password}} {% endcomment %}
+                </div>
+              </div>
+              <div class="col-12">
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-3 d-block w-100"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+            {% if messages %} <br />
+                {% for m in messages %}
+                  <p {% if m.tags %} class="alert alert-{{m.tags}} text-danger" {% endif %}>{{m}}</p>
+                {% endfor %} <br />
+            {% endif %}
+            <p
+              class="font-monospace fw-medium text-center text-muted mt-3 pt-4 mb-0"
+            >
+              Don’t have an account?
+              <a href="{% url 'signup' %}" class="text-decoration-none"
+                >Sign up Today</a
+              >
+              <br />
+              <a href="{% url 'password_reset' %}" class="text-decoration-none"
+                >Forgot password</a
+              >
+            </p>          
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--register section end-->
+{% endblock content %}

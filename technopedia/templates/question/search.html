@@ -1,0 +1,97 @@
+{% extends "user/base.html" %} {% load static %} <br />
+{% block title %}
+<title>SEARCH RESULT - Technopedia</title>
+{% endblock title %} <br />
+{% block content %} <section class="sign-up-in-section bg-dark ptb-60" style="
+background: url('{% static "assets/img/page-header-bg.svg" %}') no-repeat right
+bottom; " > 
+
+<div class="container mt-3">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-lg-8 col-md-8 col-12">
+        {% if question %}         
+          <h1 class="h3 mt-3"> Your Search results are given below</h1>
+        {% for que in question %}
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="single-article feature-article rounded-custom my-3">
+                
+                <div class="article-content p-4">
+                  <div class="article-category mb-4 d-block">
+                    {% if que.status %}
+                      <a
+                        href="javascript:;"
+                        class="d-inline-block text-success badge bg-success-soft" 
+                        > 
+                        Solved
+                      </a>
+                    {% else %}
+                      <a
+                      href="javascript:;"
+                      class="d-inline-block text-danger badge bg-danger-soft" 
+                      > 
+                      Pending
+                      </a>
+                    {% endif %}
+                  </div>
+                  <a href="{% url 'quedetail' que.id %}">
+                    <h2 class="h5 article-title limit-2-line-text text-dark">
+                      {{que.title}}
+                    </h2>
+                  </a>
+                  <p class="limit-2-line-text text-secondary">
+                    {{que.description}}
+                  </p>
+      
+                  <a href="javascript:;">
+                    <div class="d-flex align-items-center">
+                      {% comment %} <div class="avatar">
+                        <img
+                          src="assets/img/testimonial/1.jpg"
+                          alt="avatar"
+                          width="40"
+                          class="img-fluid rounded-circle me-3"
+                        />
+                      </div> {% endcomment %}
+                      <div class="avatar-info">
+                        <a href="{% url 'userdetail' que.user_id %}">
+                          <h6 class="mb-0 avatar-name text-primary">{{que.user}}</h6>
+                        </a>
+                        <span class="small fw-medium text-muted">{{que.created_at}}</span><br>
+                        <a class="text-primary mt-2" href="{% url 'quedetail' que.id %}"><i class="fa-solid fa-comment-lines inline"></i>Add Comment</a>
+                      </div>
+                      {% comment %} <div class="d-flex flex-row">
+                        <form action="{% url 'like_post' que.id %}" method="POST">
+                          {% csrf_token %}
+                          <input type="hidden" name="next" value="{{ request.path }}">
+                          <button type="submit" class="btn btn-sm">
+                            <i class="fa-light fa-up-to-line"></i>
+                          </button>
+                        </form>
+                        <form action="{% url 'dislike_post' que.id %}" method="POST">
+                          {% csrf_token %}
+                          <input type="hidden" name="next" value="{{ request.path }}">
+                          <button type="submit" class="btn btn-sm">
+                            <i class="fa-light fa-down-to-line"></i>
+                          </button>
+                        </form>
+                      </div> {% endcomment %}
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% comment %} </div> {% endcomment %}
+        {% endfor %}
+        {% else %}
+        <div class="row text-center">
+        <h1 class="h3 mt-3"> No results found</h1>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+</section>
+
+{% endblock content %}

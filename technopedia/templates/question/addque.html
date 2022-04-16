@@ -1,0 +1,111 @@
+{% extends "user/base.html" %} {% load static %} <br />
+{% block title %}
+<title>ADD QUESTION - Technopedia</title>
+{% endblock title %} <br />
+{% block content %} <section class="sign-up-in-section bg-dark ptb-60" style="
+background: url('{% static "assets/img/page-header-bg.svg" %}') no-repeat right
+bottom; " > 
+
+<div class="container mt-3">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-5 col-md-8 col-12">
+        {% comment %} <a href="index.html" class="mb-4 d-block text-center"
+          ><img
+            src="{% static 'assets/img/logo-bulb-white.png' %}"
+            alt="logo"
+            class="img-fluid"
+            width="120px"
+        /></a> {% endcomment %}
+        <div class="register-wrap p-5 bg-light shadow rounded-custom mt-5">
+          <i class="fa-solid fa-message-question fa-2x"></i>
+          <h1 class="h3 d-inline"> Add Question</h1>
+          <p class="text-muted">
+            Please Read below details before posting a Question.
+          </p>
+          <div class="alert alert-primary text-Primary" role="alert">
+            <strong>Tips on getting good answers quickly </strong>
+            <br>
+                <div>1. Make sure your question has not been asked already</div>  
+                <div>2. Keep your question short and to the point</div> 
+                <div>3. Double-check grammar and spelling </div> 
+          </div>
+          <form action="" method='POST' class="mt-4 register-form" novalidate>
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-sm-12">
+                {% comment %} <label for="title" class="mb-1"
+                  >Enter Your id<span class="text-danger">*</span></label
+                > {% endcomment %}
+                <div class="input-group mb-3">
+                  {% comment %} <input
+                    type="hidden"
+                    class="form-control"
+                    placeholder="Username"
+                    id="user"
+                    required
+                    readonly=""
+                    aria-label="user"
+                    name="user"
+                    value="{{user.id}}"
+                  />  {% endcomment %}
+                  {% comment %} {{user.username}} {% endcomment %}
+                  {% comment %} {{user.id}} {% endcomment %}
+                  {{form.user}}
+                  {% comment %} {{form.user}} {% endcomment %}
+                  {% comment %} {{request.user}} {% endcomment %}
+                </div>  
+              </div>
+              <div class="col-sm-12">
+                <label for="title" class="mb-1"
+                  >Question Title <span class="text-danger">*</span></label
+                >
+                <div class="input-group mb-3">
+                  {% comment %} <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    id="user"
+                    required
+                    aria-label="user"
+                    name="user"
+                  /> {% endcomment %}
+                  
+                  {% comment %} {{form.user}} {% endcomment %}
+                  {% comment %} {{request.user}} {% endcomment %}
+                  {{form.title}}
+                </div>  
+              </div>
+              <div class="col-sm-12">
+                <label for="description" class="mb-1"
+                  >Description <span class="text-danger">*</span></label
+                >
+                <div class="input-group mb-3">
+                  {% comment %} <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    id="password"
+                    name="password"
+                    required
+                    aria-label="Password"
+                  />  {% endcomment %}
+                   {{form.description}} 
+                </div>
+              </div> 
+              <div class="col-12">
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-3 d-block w-100"
+                >
+                  POST QUESTION
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,145 @@
+{% extends "user/base.html" %} {% load static %} <br />
+{% block title %}
+<title>ADD QUESTION - Technopedia</title>
+{% endblock title %} <br />
+{% block content %} <section class="sign-up-in-section bg-dark ptb-60" style="
+background: url('{% static "assets/img/page-header-bg.svg" %}') no-repeat right
+bottom; " > 
+
+<div class="container mt-3">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-7 col-md-8 col-12">
+        <div class="register-wrap p-5 bg-light shadow rounded-custom mt-5">
+          <p class="h5 d-inline text-dark ">Status:</p>
+          
+          {% if question.status %}
+          <p class="d-inline-block text-success badge bg-success-soft"> 
+                    Solved
+                </p>
+            {% else %}
+                <p class="d-inline-block text-danger badge bg-danger-soft"> 
+                    Pending
+                </p>
+            {% endif %}
+          <form action="" method='POST' class="mt-4 register-form">
+            {% csrf_token %}
+            <div class="row">
+                {% comment %} <div class="col-sm-12 ">
+                    <p class="mb-3 text-dark h6">Question Number:{{question.id}}</p> 
+                </div>   {% endcomment %}
+                <div class="col-sm-12">
+                    <p class="mb-1 h3 text-dark">{{question.title}}</p> 
+                </div>  
+            </div>
+                <div class="col-sm-12">
+                    <p class="mb-1 h6 text-secondary">{{question.description}}</p>
+                </div>
+            {% comment %} {% for a in answer %}
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <p class="mb-3 text-dark h3">Answer:{{a.answer}}</p> 
+                    </div>  
+                    <div class="col-sm-12">
+                        <p class="mb-1 h6 text-dark">{{a.user__username}}</p> 
+                    </div>  
+                </div>
+            {% endfor %} {% endcomment %}
+            {% comment %} {{form}} {% endcomment %}
+            {% comment %} <div class="col-md-12 text-center"> {% endcomment %}
+              {% comment %} </div> {% endcomment %}
+              <div class="col-12">
+                <div class="col-md-12 ">
+                  <p class="mt-3 text-primary " type="text" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  <i class="fa-solid fa-comment-lines "></i>
+                  Load Comment
+                </p>
+              </div>
+              <div class="collapse mt-4" id="collapseExample">
+                <div class="col-sm-12">
+                  <label for="title" class="mb-1"
+                      >Answer: <span class="text-danger">*</span></label
+                    >
+                    <div class="input-group mb-3">
+                      {{form.user}}
+                      {{form.queid}}
+                      {{form.answer}}  
+                    </div>  
+                  </div>
+                  <button
+                  type="submit"
+                  class="btn btn-primary mt-3 w-30"
+                  >
+                  Submit
+                </button>
+              </form>
+              {% for l in like %}
+              {{l}}
+              {% endfor %}
+              {% for a in answer %}
+              {% comment %} <form action="{% url 'like_post' a.id %} "  method="post">
+                {% csrf_token %} {% endcomment %}
+                  <div class="card card-body mt-3">
+                    {% comment %} Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger. {% endcomment %}
+                  <div class="col-sm-12 ">
+                    <label for="title" class="mb-1"
+                      >Answer:</label
+                    >
+                    <p class="mb-3 text-dark h6">{{a.answer}}</p>   
+                  </div>
+                  <div class="col-sm-12">
+                    <label for="title" class="mb-1"
+                      >user: </label
+                    >
+                    <p class="mb-1 h6 text-dark">{{a.user__username}}</p>   
+                  </div>
+                  {% comment %} <button class="btn btn-sm btn-primary" type="submit" name="like_answer_id" value="{{ a.id }}">
+                    <i class="fa-light fa-up-to-line"></i>
+                  </button> {% endcomment %}
+                  {% comment %} {{total_like}} {% endcomment %}
+                  <div class="d-flex flex-row">
+                    <form action="{% url 'like_post' a.id %}" method="POST">
+                      {% csrf_token %}
+                      <input type="hidden" name="next" value="{{ request.path }}">
+                      {% if a.likecount == None %}
+                        <button type="submit" class="btn btn-sm text-primary">
+                          <i class="fa-light fa-up-to-line fa-2x"><span class="text-dark mx-2 h6">0</span></i>
+                        </button>
+                      {% else %}
+                        <button type="submit" class="btn btn-sm text-primary">
+                          <i class="fa-light fa-up-to-line fa-2x"><span class="text-dark mx-2 h6">{{ a.likecount }}</span></i>
+                        </button>
+                      {% endif %}
+                      
+                    </form>
+                    <form action="{% url 'dislike_post' a.id %}" method="POST">
+                      {% csrf_token %}
+                      <input type="hidden" name="next" value="{{ request.path }}">
+                      {% if a.dislikecount == None %}
+                        <button type="submit" class="btn btn-sm text-danger">
+                          <i class="fa-light fa-down-to-line fa-2x"><span class="text-dark mx-2 h6">0</span></i>
+                        </button>
+                      {% else %}
+                        <button type="submit" class="btn btn-sm text-danger">
+                          <i class="fa-light fa-2x fa-down-to-line"><span class="text-dark mx-2 h6">{{ a.dislikecount }}</span></i>
+                        </button>
+                      {% endif %}
+                    </form>
+                  </div>
+                </div>
+              </form>
+                {% endfor %}
+              </div>
+            
+          </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% comment %} {% for a in answer %} {{ a }}
+<br />
+{% endfor %} {{question}} {{question.description}} {% endcomment %}
+{% endblock content %}
